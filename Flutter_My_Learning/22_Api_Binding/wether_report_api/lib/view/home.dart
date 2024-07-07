@@ -1,5 +1,9 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:wether_report_api/Controller/feach_data.dart';
+import 'package:wether_report_api/Controller/feach_location.dart';
+import 'package:wether_report_api/Model/locationData_model.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -10,10 +14,23 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   var wetherReport;
+  LocationData? locationData;
+
   @override
   void initState() {
     super.initState();
-    wetherReport = FeachData.feachWetherInfo();
+    feach_location();
+    feach_data();
+  }
+
+  void feach_location() async {
+    locationData = await feachLocation();
+    log("wetherReport: ${locationData!.position!.latitude}");
+  }
+
+  void feach_data() async {
+    wetherReport = await FeachData.feachWetherInfo(location: "Akot");
+    print(wetherReport);
   }
 
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
-import 'package:wether_report_api/home.dart';
+import 'package:wether_report_api/view/home.dart';
 
 void main() {
   runApp(const MyApp());
