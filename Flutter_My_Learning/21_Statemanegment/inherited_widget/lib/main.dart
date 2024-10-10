@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 import 'login_screen.dart';
@@ -39,6 +41,7 @@ class EMPInheritedwidget extends InheritedWidget {
 
   @override
   bool updateShouldNotify(covariant EMPInheritedwidget oldWidget) {
+    log("in change notifire");
     return empData != oldWidget.empData;
   }
 
